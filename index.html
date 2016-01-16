@@ -1,37 +1,25 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Project-darwin : Analyzing the collection of books read by Charles Darwin in order to find how his reading patterns reflect the biographically important events and his accomplishments.">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Project-darwin</title>
+    <meta charset="UTF-8">
+    <title>Project-darwin by abhie19</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Project-darwin</h1>
+      <h2 class="project-tagline">Analyzing the collection of books read by Charles Darwin in order to find how his reading patterns reflect the biographically important events and his accomplishments.</h2>
+      <a href="https://github.com/abhie19/Project-Darwin" class="btn">View on GitHub</a>
+      <a href="https://github.com/abhie19/Project-Darwin/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/abhie19/Project-Darwin/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/abhie19/Project-Darwin">View on GitHub</a>
-
-          <h1 id="project_title">Project-darwin</h1>
-          <h2 id="project_tagline">Analyzing the collection of books read by Charles Darwin in order to find how his reading patterns reflect the biographically important events and his accomplishments.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/abhie19/Project-Darwin/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/abhie19/Project-Darwin/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
 
 <p>Charles Darwin is one of the most celebrated scientist in the field of science due to his groundbreaking research on the origin and evolution of species. In order to better understand his journey that led him to make such an important conclusion eventually, is analyzed and published by Jamie Murdock, Colin Allen, and Simon DeDeo in their paper- “Exploration and Exploitation of Victorian Science in Darwin’s Reading Notebooks”. This research paper performs information foraging by going through the records of the books he read from 1837 to 1860, a period where he went through a number of significant epochs which finally culminated in the publication of his major work – <em>“The Origin of Species”</em>.</p>
@@ -46,18 +34,163 @@
 <p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/PC.png?raw=true" alt="PCA"></p>
 
 <p>Principal component representation of 40 Topic dataset and 80 topic dataset represent that the first 2 components capture most of the variance in data. This information would further be used to visualize data in 2 dimension.</p>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Project-darwin maintained by <a href="https://github.com/abhie19">abhie19</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+<h2>
+<a id="classical-multidimensional-scaling" class="anchor" href="#classical-multidimensional-scaling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classical Multidimensional Scaling</h2>
+
+<p>The purpose of multidimensional scaling is to provide a visualization of the pattern of proximities i.e. distances, among a set of objects. In this case, CMDS on topic 20 data set would provide us with a representation that gives us an idea how the different books are distributed.</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/CMDS.png?raw=true" alt=""></p>
+
+<p>This plot represents the configuration obtained by applying CMDS to Topic 60 dataset using Euclidean distance measure of dissimilarity. </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/CMDS%20ALL.png?raw=true" alt=""></p>
+
+<p>As observed in Figure 3, the configuration obtained using KL distance matrix has more spread in data for every topic model which aligns more perfectly to the actual scenario where Darwin has been in a state of constant exploration as well as exploitation and hence reading a vast range of books.</p>
+
+<h2>
+<a id="isomap" class="anchor" href="#isomap" aria-hidden="true"><span class="octicon octicon-link"></span></a>ISOMAP</h2>
+
+<p>ISOMAP, in contrast with PCA, is a non-linear dimension reduction technique which seeks to preserve the intrinsic geometry of the data such that the points which are close to each other remain close to each other i.e. capturing the geodesic manifold between all pairs of data points.</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/ISO.png?raw=true" alt=""></p>
+
+<p>Plot for Topic 40 model, Isomap gives a configuration where the outliers are clearly isolated.</p>
+
+<h1>
+<a id="distance-metric" class="anchor" href="#distance-metric" aria-hidden="true"><span class="octicon octicon-link"></span></a>DISTANCE METRIC</h1>
+
+<p>In the paper “Exploration and Exploitation of Victorian Science in Darwin’s Reading Notebooks”, Jamie, Colin and Simon have used KL divergence to quantify the “surprise” that Darwin will encounter when he reads a book with distribution p right after a book with distribution q. Further, they have used this measure to indicate Text-to-Text surprise and Past-to-Text surprise, two novel methods that give a significant insight into Darwin’s decision making. We will discuss more about it later, but first we need to see if there are other alternatives to measure “surprise” in Darwin’s reading pattern. </p>
+
+<h2>
+<a id="jensen-shannon-divergence" class="anchor" href="#jensen-shannon-divergence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jensen-Shannon Divergence</h2>
+
+<p>It is another method of measuring proximities between two probability distributions which is based on KL divergence, with the major difference including- it is symmetric and always finite valued. Also, for the cases where it is clear to have a strict metric e.g. for clustering, JS is a preferred choice. Even though JS-divergence is not itself a metric, it’s square root, JS Distance is a metric. 
+Jensen-Shannon Divergence defined for two distributions </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/JSF.png?raw=true" alt=""></p>
+
+<p>Jensen-Shannon Distance is the square root of JSD, </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/JSD.png?raw=true" alt=""></p>
+
+<h2>
+<a id="cosine-similarity-and-angle-dissimilarity" class="anchor" href="#cosine-similarity-and-angle-dissimilarity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cosine Similarity and Angle Dissimilarity</h2>
+
+<p>The cosine similarity of object I and j is yi and yj  is ij = zi, zj, where ij  is the cosine of the angle between vectors yi and yj. The angle dissimilarity of objects i and j is . As we know that is the natural transformation from cosine similarity to dissimilarity, but we will use another transformation,</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/Distance.png?raw=true" alt=""></p>
+
+<p>which is the chordal distance and gives a better approximation of geodesic distance.</p>
+
+<h1>
+<a id="surprise-measure" class="anchor" href="#surprise-measure" aria-hidden="true"><span class="octicon octicon-link"></span></a>SURPRISE MEASURE</h1>
+
+<p>As we had discussed earlier, KL divergence on the topic dataset quantifies the “surprise” of optimal learner trained on distribution q, when encountering a new distribution p. It returns the output as number of bits. With the use of KL divergence, Text-to-Text and Past-to-Text were calculated and showed the trend of Darwin’s reading as exploration and exploitation. To take this further, I would apply KL divergence to achieve Month-to-Text, Year-to-Text and Past-n-to-Text, to get better insights in Darwin’s reading pattern. </p>
+
+<h2>
+<a id="text-to-text" class="anchor" href="#text-to-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text-to-Text</h2>
+
+<p>Text-to-Text is described as given the latest text that Darwin has encountered, how surprised is Darwin by the next text. It is formulated as – </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/T2T.png?raw=true" alt=""></p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/T2T%20aLL.png?raw=true" alt=""></p>
+
+<p>In order to get the plot for Text-to-Text cumulative surprise on Topic 20 dataset, it was necessary to have a null model which allows us to determine the significant variance in the jumps, while keeping the overall reading list and reading dates fixed. To generate this null model, I re-sampled without replacement from Darwin’s original reading list with the constraint of keeping the reading date after it’s publication time. The results are quite consistent with what has been published, yet we can see from the above plots that though the overall trend is consistent, there have been difference in the actual values obtained for the y-axis (Data-Null), which can be devoted to the different null-model generated in the two cases. More negative slopes in indicate lower surprise (exploitation), while positive slopes indicate greater surprise (exploration).</p>
+
+<h2>
+<a id="past-to-text" class="anchor" href="#past-to-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Past-to-Text</h2>
+
+<p>Past-to-Text is described as given all of the volumes that Darwin has encountered, how surprised is Darwin by the next text. It is formulated as – </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/PN2T.png?raw=true" alt=""></p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/P2T%20all.png?raw=true" alt=""></p>
+
+<p>The Past-to-Text cumulative surprise compares the KL divergence between the probability distribution of one book with sum of distributions of all the previous books. The upward slope represents that Darwin has been reading books that were from diverse topics i.e. exploration, while downward slope represented that Darwin’s reading were focused within certain topics i.e. exploitation. It can be deduced from the above plots that Darwin had 3 major periods of exploration, each followed by consecutive periods of exploitation.</p>
+
+<h2>
+<a id="month-to-text" class="anchor" href="#month-to-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Month-To-Text</h2>
+
+<p>Month-to-Text is described as given all of the volumes from that particular month of a year that Darwin has encountered, how surprised is Darwin by the next text. It is formulated as – </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/M2T2.png?raw=true" alt=""></p>
+
+<p>where  is the distribution, M is the number of books previously read during that particular month of year.</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/M2T%20all.png?raw=true" alt=""></p>
+
+<p>monthly pattern of Darwin’s reading habit. In order to generate a month-to-text analysis, I build further upon the past-to-text and only compared the KL divergence of one book with KL divergence of all the previous books read during the same month of that year. Also, the null model had to be transformed accordingly to calculate surprise compared with the books from that month only. The results gave a further granular insight, showing that Darwin’s exploration and exploitation during the major epochs of his lifespan. For example, the three major peaks belong to his Voyage, Barnacle research and synthesis of ‘Origin of Species’ with each epoch having an exploration period where he read books on diverse topics which is followed by exploitation through focused reading on those topics. </p>
+
+<h2>
+<a id="year-to-text" class="anchor" href="#year-to-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Year-to-Text</h2>
+
+<p>Year-to-Text is described as given all of the volumes from that particular year that Darwin has encountered, how surprised is Darwin by the next text. It is formulated as – </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/Y2T.png?raw=true" alt=""></p>
+
+<p>where  is the distribution, Y is the number of books previously read during that particular year.</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/Y2T%20all.png?raw=true" alt=""></p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/Y2T%20one.png?raw=true" alt=""></p>
+
+<p>Year-to-Text is another novel analysis which gives a further highlight into Darwin’s reading behavior. We can see from the above plots that significant surprises have occurred during major events such as between 1841 to 1845 when Darwin was writing Essays while his voyage or the consistent peaks around 1857 shows that the books Darwin was reading that period were completely different then what he read in the previous year. Same trend could be spotted when he started his barnacle study.</p>
+
+<h2>
+<a id="past-n-to-text" class="anchor" href="#past-n-to-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Past-N-to-Text</h2>
+
+<p>Past-N-to-Text is described as given N volumes that Darwin has encountered, how surprised is Darwin by the next text. It is formulated as – </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/PN2T.png?raw=true" alt=""></p>
+
+<p>where  is the distribution, N is the number of books to be used for comparison(user defined).</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/PN2T%20all.png?raw=true" alt=""></p>
+
+<p>Past-N-to-Text quantifies the surprise incurred from the current book to that of the previous n books, which in our case is previous 10 and 100 books. These plots don’t seem to convey much insight except a sudden bump during the period of 1841 to 1845 which can be dedicated to the limited number of previous books to compare with causing a higher surprise when the first exploration occurred. After a certain threshold, the line starts to decline with some minor bumps indicating an exploration over a number of books.
+</p>
+
+<h1>
+<a id="clustering" class="anchor" href="#clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>CLUSTERING</h1>
+
+<p>In order to find certain group or clusters that are hidden in the dataset, I used two of the unsupervised learning techniques, i.e. – K-means clustering and Spectral clustering. The reason I ventured both the techniques instead of just one is that K-means clustering is good for only elliptically shaped data, while spectral clustering is much more flexible and gives a choice of similarity or dissimilarity to use. Our dataset is good for both of these clustering techniques.</p>
+
+<h2>
+<a id="k-means-clustering" class="anchor" href="#k-means-clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>K-means Clustering</h2>
+
+<p>K-means clustering using MacQueens algorithm on all the topic models was applied. The plots obtained are as follows: </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/KMeans%20CLR.png?raw=true" alt=""></p>
+
+<p>I performed K-means with K=5 to account for the clusters in Topic 60, but other than that, the data can be aptly represented as 3 cluster with 2 of the clusters stretching in somewhat perpendicular directions to each other. This is also analogous to the 3 epochs (Voyage, Barnacle research, synthesis of Origin of Species) in Darwin’s reading history and almost all of the topics can be classified into either 3 of these epochs as inferable from the plots above. </p>
+
+<h2>
+<a id="spectral-clustering" class="anchor" href="#spectral-clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spectral Clustering</h2>
+
+<p>The basic idea behind spectral clustering is to select a similarity matrix, get the Laplacian matrix and calculate eigenvalues and eigenvectors of the Laplacian. Then using kmeans algorithm on the eigenvalues corresponding to the k smallest eigenvectors. This will give k clusters. In our case we have several measure of proximity to apply – KNN, JS Distance, Cosine Similarity, Angle Dissimilarity and Chordal distance transformation. </p>
+
+<p>Following plots have been obtained by performing spectral clustering with knn -</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/Spec%20clr.png?raw=true" alt=""></p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/spec%20clr%202.png?raw=true" alt=""></p>
+
+<p>Above plots represent the result obtained after performing spectral clustering on all the different topic models. The first plot in each case is the Eigenvalue spectrum plot which gives the optimal k value for the clusters. The second and third plot represent the clusters via clusplot and plotcluster library, respectively.</p>
+
+<p>Following are the cluster analysis on the various proximity measures-</p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/Prox%20CLR.png?raw=true" alt=""></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/abhie19/Project-Darwin">Project-darwin</a> is maintained by <a href="https://github.com/abhie19">abhie19</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
