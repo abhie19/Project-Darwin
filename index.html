@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Project-darwin : Analyzing the collection of books read by Charles Darwin in order to find how his reading patterns reflect the biographically important events and his accomplishments.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Project-darwin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/abhie19/Project-Darwin">View on GitHub</a>
+
+          <h1 id="project_title">Project-darwin</h1>
+          <h2 id="project_tagline">Analyzing the collection of books read by Charles Darwin in order to find how his reading patterns reflect the biographically important events and his accomplishments.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/abhie19/Project-Darwin/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/abhie19/Project-Darwin/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>Charles Darwin is one of the most celebrated scientist in the field of science due to his groundbreaking research on the origin and evolution of species. In order to better understand his journey that led him to make such an important conclusion eventually, is analyzed and published by Jamie Murdock, Colin Allen, and Simon DeDeo in their paper- “Exploration and Exploitation of Victorian Science in Darwin’s Reading Notebooks”. This research paper performs information foraging by going through the records of the books he read from 1837 to 1860, a period where he went through a number of significant epochs which finally culminated in the publication of his major work – <em>“The Origin of Species”</em>.</p>
+
+<p>In order to carry forward the work on Darwin information foraging, I am going to apply some more techniques of data analytics to try to find more insights that the data can provide. The data available to me includes KL divergence between the books, probability distribution of topics (20, 40, 60, 80), list of all the topics, raw data, as well as some metadata about the books.</p>
+
+<h2>
+<a id="principal-component-analysis" class="anchor" href="#principal-component-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>PRINCIPAL COMPONENT ANALYSIS</h2>
+
+<p>PCA is the first step in analyzing this data since the data is high dimensional ranging from 20 variables to 80 variables depending on the number of topics we select. Ideally, PCA returns the low dimensional representation of data and the amount of variance captured by each of the principal components. </p>
+
+<p><img src="https://github.com/abhie19/Project-Darwin/blob/master/Images/PC.png" alt=""></p>
+
+<p>Principal component representation of 40 Topic dataset and 80 topic dataset represent that the first 2 components capture most of the variance in data. This information would further be used to visualize data in 2 dimension.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Project-darwin maintained by <a href="https://github.com/abhie19">abhie19</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
