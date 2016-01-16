@@ -1,8 +1,7 @@
 # #-----------------------------------------------------------------------
 #   @Author - Abhishek Anand Singh
-#   S-675 Statistical Learning/ High Dimensional Data Analytics
-#   aasingh@indiana.edu (0003557334)
-#   Code for report on Darwin's reading paper
+#   aasingh@indiana.edu
+#   Code for Project Darwin
 # #-----------------------------------------------------------------------
 
 library(entropy)
@@ -484,7 +483,7 @@ n2t_df <- data.frame(n2t_mat)
 
 ggplot(data = n2t_df, aes(x = n2t_mat[,1], y = n2t_mat[,2], group =1)) + labs(x= "Volumes", y = "Data - Null (bits)", title = "Darwin's Past-N-to-Text Cumulative Surprise") + geom_line()
 
-# Reference s
+# References
 
 # Libraries provided by open source R-community.
 # Also used code provided by Prof. Trosset as part of class assignment to calculate graph laplacian and adjacency matrix. 
